@@ -129,4 +129,4 @@ a *= 3 + 5;
 console.log(a);     // returns 16 (i.e. 2 * (3 + 5)) because shorthand operators are lower in precedence
 
 a = (1 + 2, 3 + 4);
-console.log(a);
+console.log(a);     // returns 7
