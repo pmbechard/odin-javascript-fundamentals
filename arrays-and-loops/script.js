@@ -169,11 +169,18 @@ function containsDoubleLetter(text) {
 
 // Calculating Squares
 
-const calculateButton = document.querySelector("#calculate");
-calculateButton.addEventListener("click", (event) => {
+const calculateSqButton = document.querySelector("#calculateSq");
+calculateSqButton.addEventListener("click", (event) => {
     resultsParagraph.textContent = ""
     for (let i = 1; i <= 10; i++) {
         resultsParagraph.innerHTML += `${i} x ${i} = ${i * i}<br><br>`;
+    }
+});
+const calculateCbButton = document.querySelector("#calculateCb");
+calculateCbButton.addEventListener("click", (event) => {
+    resultsParagraph.textContent = ""
+    for (let i = 1; i <= 10; i++) {
+        resultsParagraph.innerHTML += `${i} x ${i} x ${i} = ${i * i * i}<br><br>`;
     }
 });
 const clearButton = document.querySelector("#clear");
