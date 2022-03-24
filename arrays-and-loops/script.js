@@ -129,8 +129,55 @@ foods.forEach( (food) => console.log(`Let's eat some ${food.toLowerCase()}!`) );
 friends.forEach(greetFriends);
 
 function greetFriends(friend) {
-    console.log(`Welcome, ${friend}! Thanks for coming.`)
+    console.log(`Welcome, ${friend}! Thanks for coming.`);
 }
 
+
+// Looping through Collections
+
+const dogBreeds = ["poodle", "yorkie", "lab", "collie", "schnauzer"]
+
+for (const dogBreed of dogBreeds) {
+    console.log(dogBreed);
+}
+
+// The Map Function
+// map() calls the function once for each item in the array, passing in the item.
+const upperDogs = dogBreeds.map(toUpper);
+console.log(upperDogs);
+const dog1337s = dogBreeds.map(to1337);
+console.log(dog1337s);
+
+function toUpper(text) {
+    return text.toUpperCase();
+}
+
+function to1337(text) {
+    return text.replace("l", "1").replace("e", "3").replace("t", "7").replace("a", "4").replace("o", "0").replace("s", "5");
+}
+
+// The Filter Function
+// You can use filter() to test each item in a collection, and create a new collection containing only items that match
+
+const doubleLetterDogs = dogBreeds.filter(containsDoubleLetter);
+console.log(doubleLetterDogs);
+
+function containsDoubleLetter(text) {
+    const regex = /(.)\1/i;
+    return regex.test(text);
+}
+
+// Calculating Squares
+
+const calculateButton = document.querySelector("#calculate");
+calculateButton.addEventListener("click", (event) => {
+    resultsParagraph.textContent = ""
+    for (let i = 1; i <= 10; i++) {
+        resultsParagraph.innerHTML += `${i} x ${i} = ${i * i}<br><br>`;
+    }
+});
+const clearButton = document.querySelector("#clear");
+clearButton.addEventListener("click", (event) => resultsParagraph.textContent = "");
+const resultsParagraph = document.querySelector("#results");
 
 
