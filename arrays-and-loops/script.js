@@ -115,7 +115,7 @@ console.log(foods.join(" + "));     // >Pizza + Ribs + Tacos + Noodles
 
 /*          LOOPING         */
 
-// For Loops
+// FOR LOOPS
 for (let i = 0; i < cars.length; i++) {
     console.log(`I want to buy a ${cars[i]}.`)
 }
@@ -188,3 +188,79 @@ clearButton.addEventListener("click", (event) => resultsParagraph.textContent = 
 const resultsParagraph = document.querySelector("#results");
 
 
+// WHILE LOOPS
+
+const pets = ["Nash", "Crosby", "Hershey", "Cadbury", "Franklin", "Meeka", "Dicky"];
+let i = 0;
+while (i < pets.length) {
+    console.log(`I had a pet named ${pets[i]}.`);
+    i++;
+}
+
+
+let factorialNum = 5;
+let factorial = 1;
+
+do {
+    factorial *= factorialNum;
+    factorialNum--;
+} while (factorialNum > 1);
+console.log(`!5 = ${factorial}`);
+
+let counter = 3;
+while (counter) console.log(counter--);
+
+
+// LABELS
+
+outerLoop: for (let i = 1; i <= 10; i++) {
+    for (let j = 1; j <= 10; j++) {
+        console.log(`Outer: ${i}\t\tInner: ${j}`);
+        if (j % 6 === 0) {
+            break;
+        } else if (i === j && i === 4) {
+            break outerLoop;
+        }
+    }
+}
+
+
+
+/* Algorithm for Calculating Prime Factors */
+
+function calculatePrimes(number) {
+    const primes = [];
+    for (let check = 2; check < number; check++) {
+        if (number % check === 0 && checkPrime(check)) {
+            primes.push(check);
+            let p = 2;
+            while (number % (check**p) === 0) {
+                primes.push(check);
+                p++;
+            }
+        }
+    }
+    return primes;
+}
+
+function checkPrime(i) {
+    for (let n = 2; n < i; n++) {
+        if (i % n === 0) return false;
+    }
+    return true;
+} 
+
+
+const primeInput = document.querySelector("#prime-factors-input");
+const primeResult = document.querySelector("#prime-factors-result");
+const primeButton = document.querySelector("#prime-factors-button");
+primeButton.addEventListener("click", (event) => {
+    let input = Number.parseInt(primeInput.value);
+    console.log(input);
+    if (Number.isInteger(input)) {
+        let primes = calculatePrimes(input);
+        primeResult.textContent = primes.join(", ");
+    } else {
+        primeResult.textContent = "Invalid Entry.";
+    }
+});
