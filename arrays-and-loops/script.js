@@ -256,7 +256,6 @@ const primeResult = document.querySelector("#prime-factors-result");
 const primeButton = document.querySelector("#prime-factors-button");
 primeButton.addEventListener("click", (event) => {
     let input = Number.parseInt(primeInput.value);
-    console.log(input);
     if (Number.isInteger(input)) {
         let primes = calculatePrimes(input);
         primeResult.textContent = primes.join(", ");
